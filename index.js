@@ -1,17 +1,24 @@
 #!/usr/bin/env node
-const argv = require('yargs/yargs')(process.argv.slice(2)).argv;
-const axios = require('axios');
+import yargs from 'yargs/yargs'
+import {hideBin} from 'yargs/helpers'
+import axios from 'axios';
+import chalk from 'chalk';
 
-const word =  (argv.word || argv._[0]).trim()
 axios.defaults.baseURL = "https://dictionary-api11.herokuapp.com";
+
+const argv = yargs(hideBin(process.argv)).argv
+
+const success = chalk.hex('#66b2b2'); // Orange color
+const error = chalk.hex('#FF3131'); // Orange color
+
+const word =  argv.word || argv._[0]
 
 axios.get(`/api/dictionary/${word}`)
   .then(function (response) {
     // handle success
-    console.log(response.data.desc);
+    console.log(success(response.data.desc));
   })
-  .catch(function (error) {
+  .catch(function (e) {
     // handle error
-    console.log(`Sorry... '${word}' is not found`);
+    console.log(error(`Sorry... '${word}' is not found`));
 })
-
