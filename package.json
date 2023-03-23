@@ -1,0 +1,22 @@
+{
+  "name": "hackers-dictionary",
+  "version": "1.0.0",
+  "description": "Terminal dictionary to quickly look up English words",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arinmis/hackers-dictionary.git"
+  },
+  "keywords": [
+    "dictionary"
+  ],
+  "author": "Mustafa Arinmis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arinmis/hackers-dictionary/issues"
+  },
+  "homepage": "https://github.com/arinmis/hackers-dictionary#readme"
+}
