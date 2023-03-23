@@ -28,7 +28,8 @@ axios.get(`/api/dictionary/${word}`)
   .catch(function (e) {
     // handle error
     const result = `${error(`Sorry... '${word}' is not found`)}`
-    const output = addNewLine(`${success(response.data.desc)}`, result , lineLimit)
+    const output = addNewLine(result, indent, lineLimit)
+    console.log(output);
   }).finally(() => {
   })  
 
