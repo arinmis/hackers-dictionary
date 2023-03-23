@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/arinmis/hackers-dictionary/issues"
   },
-  "homepage": "https://github.com/arinmis/hackers-dictionary#readme"
+  "homepage": "https://github.com/arinmis/hackers-dictionary#readme",
+  "dependencies": {
+    "yargs": "^17.7.1"
+  }
 }
