@@ -14,9 +14,14 @@ const error = chalk.hex('#FF3131'); // Orange color
 const lineLimit = 80;
 const indent = "   ";
 
-const word =  argv.word || argv._[0]
+if (argv._.length != 1 && !argv.word)  {
+  console.log(error("Usage: mean --word example"))
+  process.exit()
+}
 
-console.log(chalk.white.bold(`-- ${word}\n`))
+const word =  argv.word || argv._[0] || argv.word
+
+console.log(chalk.white.bold(`-- ${word.charAt(0).toUpperCase() + word.slice(1)}\n`))
 
 axios.get(`/api/dictionary/${word}`)
   .then(function (response) {
@@ -28,10 +33,9 @@ axios.get(`/api/dictionary/${word}`)
   .catch(function (e) {
     // handle error
     const result = `${error(`Sorry... '${word}' is not found`)}`
-    const output = addNewLine(result, indent, lineLimit)
-    console.log(output);
-  }).finally(() => {
-  })  
+    const output = addNewLine(result, indent , lineLimit)
+    console.log(output)
+  })
 
 
 
